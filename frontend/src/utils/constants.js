@@ -19,6 +19,7 @@ export const EXPENSE_CATEGORIES = [
   'Tabungan',
   'Tagihan Listrik',
   'Tagihan Air',
+  'Tagihan Telepon',
   'Internet',
   'SPP',
   'Makanan',
