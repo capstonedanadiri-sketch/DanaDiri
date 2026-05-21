@@ -101,7 +101,7 @@ const createTransaction = asyncHandler(async (req, res) => {
   const { amount, type, category, description, date } = req.body;
 
   if (!amount || !type || !category || !date) {
-    return res.status(200).json({ 
+    return res.status(400).json({ 
       success: false, 
       message: 'Field wajib: amount, type, category, date' 
     });
@@ -111,7 +111,7 @@ const createTransaction = asyncHandler(async (req, res) => {
   if (type === 'expense') {
     const currentBalance = await calculateBalance(req.user._id);
     if (currentBalance < amount) {
-      return res.status(200).json({ 
+      return res.status(400).json({ 
         success: false, 
         message: 'Saldo tidak cukup untuk melakukan transaksi ini' 
       });
